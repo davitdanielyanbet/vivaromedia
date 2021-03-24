@@ -18,5 +18,4 @@
 </div>
 
 <p class="sign-up text-center">Already have an Account?<a href="{{ route('login') }}"> Sign In</a></p>
-<p class="terms">By creating an account you are accepting our<a href="#"> Terms & Conditions</a></p>
 </form>
