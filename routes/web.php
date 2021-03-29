@@ -22,7 +22,18 @@ Route::group(['middleware' => 'auth'], function(){
     })->name('dashboard');
 
     Route::view('profile','profile')->name('profile');
+
     Route::put('profile',[App\Http\Controllers\ProfileController::class, 'update'])
         ->name('profile.update');
+
+    Route::get('edit/{id}',[App\Http\Controllers\ProfileController::class, 'edit'])->name('edit');
+
+    Route::put('edit/{id}',[App\Http\Controllers\ProfileController::class, 'edit'])
+        ->name('edit');
+
+
+    Route::get('dashboard/userList',[\App\Http\Controllers\UserListController::class,'showAllUsers'])->name('userList');
+
+    Route::get('dashboard/userList/edit/{user}',[\App\Http\Controllers\UserListController::class,'editUserList']);
 });
 require __DIR__.'/auth.php';
