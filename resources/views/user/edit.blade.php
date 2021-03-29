@@ -10,7 +10,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <x-validation-errors />
                     <x-success-message />
-                    <form method="POST" action="{{ route('edit', $user->id) }}">
+                    <form method="POST" action="{{ route('edit', $user->id) }}" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="grid grid-cols-1 gap-6">
