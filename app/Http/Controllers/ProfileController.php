@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -33,13 +34,27 @@ class ProfileController extends Controller
             $user->name = $data['name'];
             $user->email = $data['email'];
             $user->update(['id' => $id]);
-            $user->userAccount()->update($request->only([
+            $accountDetails = $request->only([
                 'first_name',
                 'last_name',
                 'position',
-                'short_desc',
-                'avatar_url'
-            ]));
+                'short_desc'
+            ]);
+
+            if (request()->hasFile('avatar_url')) {
+                $validator = Validator::make($request->all(), [
+                    'avatar_url' => 'required|image|max:2054'
+                ]);
+                if ($validator->fails()) {
+                    return 'Validation error';
+                } else {
+                    $avatar = request()->file('avatar_url')->getClientOriginalName();
+                    $user->userAccount()->update(['avatar_url' => $avatar]);
+                    $accountDetails['avatar_url'] = request()->file('avatar_url')->store('avatars', 'public');
+                }
+            }
+
+            $user->userAccount()->update($accountDetails);
             return redirect()->back()->with('message', 'You updated user information');
         }
 

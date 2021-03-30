@@ -69,7 +69,7 @@
                 }
                 else{
                     echo '<div class="navbar-button d-none d-lg-inline-block">
-                                <a href="https://www.vmedia.com/login" class="btn btn-sm btn-success btn-round">Sign in</a>
+                                <a href="https://www.vmedia.com/register" class="btn btn-sm btn-success btn-round">Sign up</a>
                             </div>';
                 }
             @endphp

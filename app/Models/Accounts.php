@@ -10,9 +10,10 @@ use Illuminate\Notifications\Notifiable;
 class Accounts extends Model
 {
     protected $fillable = [
+        'user_id',
         'first_name',
         'last_name',
-        'position',
+        'postition',
         'short_desc',
         'avatar_url'
     ];

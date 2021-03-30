@@ -10,7 +10,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <x-validation-errors />
                     <x-success-message />
-                    <form method="POST" action="{{ route('edit', $user->id) }}" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" name="UserListUpdate"  action="{{ route('edit', $user->id) }}">
                         @method('PUT')
                         @csrf
                         <div class="grid grid-cols-1 gap-6">
@@ -40,7 +40,7 @@
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <x-label for="avatar_url" :value="__('Update avatar')" />
-                                    <x-input id="avatar_url" class="block mt-1 w-full" type="file" name="avatar_url" value="{{ $accounts->avatar_url }}" autofocus ruequired/>
+                                    <x-input id="avatar_url" class="block mt-1 w-full" type="file" name="avatar_url" value="{{ Storage::url($accounts->avatar_url) }}" autofocus ruequired/>
                                 </div>
                                 <div>
                                     <x-label for="short_desc" :value="__('Short description')" />

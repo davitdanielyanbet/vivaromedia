@@ -35,5 +35,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('dashboard/userList',[\App\Http\Controllers\UserListController::class,'showAllUsers'])->name('userList');
 
     Route::get('dashboard/userList/edit/{user}',[\App\Http\Controllers\UserListController::class,'editUserList']);
+
+
+    Route::post('upload', [\App\Http\Controllers\UploadController::class, 'store']);
 });
 require __DIR__.'/auth.php';
