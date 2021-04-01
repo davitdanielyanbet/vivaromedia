@@ -15,6 +15,7 @@ class Accounts extends Model
         'last_name',
         'postition',
         'short_desc',
-        'avatar_url'
+        'avatar_url',
+        'show_user'
     ];
 }

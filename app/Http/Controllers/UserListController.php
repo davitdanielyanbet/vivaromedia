@@ -15,7 +15,7 @@ class UserListController extends Controller
      */
     public function showAllUsers()
     {
-        $users = User::with('userAccount')->orderBy('id', 'ASC')->simplePaginate(4);
+        $users = User::with('userAccount')->orderBy('id', 'ASC')->simplePaginate(20);
 
         return view('userList', compact('users'));
     }

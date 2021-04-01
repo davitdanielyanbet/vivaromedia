@@ -8,7 +8,7 @@ class  MainController extends Controller
 {
     public function index()
     {
-        $users = User::with('userAccount')->orderBy('id', 'ASC')->simplePaginate(4);
+        $users = User::with('userAccount')->orderBy('id', 'ASC')->simplePaginate(15);
         return view('index', compact('users'));
     }
 }

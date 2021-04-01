@@ -38,8 +38,13 @@ class ProfileController extends Controller
                 'first_name',
                 'last_name',
                 'position',
-                'short_desc'
+                'short_desc',
+                'show_user'
             ]);
+
+            if (!$request->input(['show_user'])){
+                $accountDetails['show_user'] = 'off';
+            }
 
             if (request()->hasFile('avatar_url')) {
                 $validator = Validator::make($request->all(), [

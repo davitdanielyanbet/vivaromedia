@@ -9,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors"/>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -42,21 +42,21 @@
             <div  class="mt-4">
                 <x-label for="postition" :value="__('Position')"/>
 
-                <x-input id="postition" class="block mt-1 w-full" type="text" name="postition" :value="old('postition')" autofocus/>
+                <x-input id="postition" class="block mt-1 w-full" type="text" name="postition" :value="old('postition')" required autofocus/>
             </div>
             <div  class="mt-4">
                 <x-label for="short_desc" :value="__('About you')"/>
 
-                <x-input id="short_desc" class="block mt-1 w-full" type="text" name="short_desc" :value="old('short_desc')" autofocus/>
+                <x-input id="short_desc" class="block mt-1 w-full" type="text" name="short_desc" :value="old('short_desc')" required autofocus/>
             </div>
             <div  class="mt-4">
                 <x-label for="first_name" :value="__('Upload your image')"/>
 
-                <x-input id="avatar_url" class="block mt-1 w-full" type="file" name="avatar_url" :value="old('avatar_url')" autofocus />
+                <x-input id="avatar_url" class="block mt-1 w-full" type="file" name="avatar_url" :value="old('avatar_url')" required autofocus />
             </div>
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')"/>
+                <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                          type="password"

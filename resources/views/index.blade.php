@@ -18,15 +18,22 @@
 
                 <div class="row mt-5 pt-5">
                     @foreach($users as $user)
-                        @if($user->userAccount->first_name !== 'Harutyun')
+                        @if($user->userAccount->show_user === 'on')
                             <div class="col-lg-3" id="user-id-{{$user->id}}">
                                 <div class="team-box rounded shadow mt-4 bg-white rounded">
                                     <div class="p-4">
                                         <div class="team-img text-center">
-                                            <img src="{{$user->userAccount->avatar_url}}" class="img-fluid rounded-circle" alt="" />
+                                            <img src="@isset($user->userAccount->avatar_url){{'https://www.vmedia.com/storage/'.$user->userAccount->avatar_url}}@endisset" class="img-fluid rounded-circle" alt="" />
                                         </div>
                                         <div class="text-center mt-4">
-                                            <h5 class="f-18">{{$user->userAccount->first_name}} {{$user->userAccount->last_name}}</h5>
+                                            <h5 class="f-18">
+                                                @isset($user->userAccount->first_name)
+                                                    {{$user->userAccount->first_name}}
+                                                @endisset
+                                                @isset($user->userAccount->last_name)
+                                                    {{$user->userAccount->last_name}}
+                                                @endisset
+                                            </h5>
                                         </div>
                                     </div>
 

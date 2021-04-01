@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->string('postition');
             $table->string('short_desc');
             $table->string('avatar_url');
+            $table->integer('show_user')->default(0);
             $table->timestamps();
         });
     }

@@ -34,18 +34,25 @@
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full" src="{{Storage::url($user->userAccount->avatar_url)}}" alt="">
+                                                        <img class="h-10 w-10 rounded-full" src="@isset($user->userAccount->avatar_url){{'https://www.vmedia.com/storage/'.$user->userAccount->avatar_url}}@endisset" alt="">
                                                     </div>
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{$user->userAccount->first_name}}  {{$user->userAccount->last_name}}
+                                                            @isset($user->userAccount->first_name)
+                                                                {{$user->userAccount->first_name}}
+                                                            @endisset
+                                                            @isset($user->userAccount->last_name)
+                                                                {{$user->userAccount->last_name}}
+                                                            @endisset
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">
-                                                    {{$user->userAccount->postition}}
+                                                    @isset($user->userAccount->postition)
+                                                     {{$user->userAccount->postition}}
+                                                    @endisset
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
