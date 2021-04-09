@@ -16,6 +16,7 @@ class Accounts extends Model
         'postition',
         'short_desc',
         'avatar_url',
-        'show_user'
+        'show_user',
+        'phone'
     ];
 }

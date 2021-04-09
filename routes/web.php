@@ -33,10 +33,14 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('dashboard/userList',[\App\Http\Controllers\UserListController::class,'showAllUsers'])->name('userList');
-
     Route::get('dashboard/userList/edit/{user}',[\App\Http\Controllers\UserListController::class,'editUserList']);
 
+    Route::get('dashboard/articlesList',[\App\Http\Controllers\ArticlesListController::class,'ArticlesListAdmin'])->name('articlesList');
+    Route::get('dashboard/articlesList',[\App\Http\Controllers\ArticlesListController::class,'ArticlesListAdmin'])->name('articlesList');
 
-    Route::post('upload', [\App\Http\Controllers\UploadController::class, 'store']);
+
+    Route::get('dashboard/articlesList/edit/{articleID}',[\App\Http\Controllers\ArticlesListController::class,'editArticle'])->name('editArticleRoute');
+
+
 });
 require __DIR__.'/auth.php';
