@@ -39,7 +39,8 @@ class ProfileController extends Controller
                 'last_name',
                 'position',
                 'short_desc',
-                'show_user'
+                'show_user',
+                'phone'
             ]);
 
             if (!$request->input(['show_user'])){

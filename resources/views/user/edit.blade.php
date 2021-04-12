@@ -39,6 +39,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
+                                   <div class="img" style="width:150px;position:relative;"> <span style="padding:2px 4px;background:#525252bd;color:#ffffff;font-size: 11px;position: absolute;left:0;top:0;">current photo</span><img style="border-radius:7px" src="@isset($accounts->avatar_url){{'https://www.vmedia.com/storage/'.$accounts->avatar_url}}@endisset" alt=""></div>
                                     <x-label for="avatar_url" :value="__('Update avatar')"></x-label>
                                     <x-input id="avatar_url" class="block mt-1 w-full" type="file" name="avatar_url" value="{{ Storage::url($accounts->avatar_url) }}" ruequired></x-input>
                                 </div>
@@ -47,6 +48,10 @@
                                     <x-input id="short_desc" class="block mt-1 w-full" type="text" name="short_desc" value="{{ $accounts->short_desc }}"></x-input>
                                 </div>
                             </div>
+                             <div class="grid grid-cols-1 gap-2">
+                                 <x-label for="phone" :value="__('Phone number')"></x-label>
+                                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" value="{{ $accounts->phone }}"></x-input>
+                             </div>
                             <div class="grid grid-cols-2 gap-6">
                                 <div>
                                     <x-label for="new_password" :value="__('New password')"></x-label>
