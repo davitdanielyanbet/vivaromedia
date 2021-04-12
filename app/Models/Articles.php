@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use App\Scopes\AncientScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Articles extends Model
@@ -11,4 +12,6 @@ class Articles extends Model
             'description',
             'featured_image'
         ];
+
+
 }

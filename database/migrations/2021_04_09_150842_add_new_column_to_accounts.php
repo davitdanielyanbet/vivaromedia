@@ -26,7 +26,7 @@ class AddNewColumnToAccounts extends Migration
     public function down()
     {
         Schema::table('accounts', function (Blueprint $table) {
-            //
+           $table->dropColumn('phone');
         });
     }
 }

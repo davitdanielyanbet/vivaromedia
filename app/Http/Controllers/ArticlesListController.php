@@ -13,9 +13,9 @@ class ArticlesListController extends Controller
         return view('dashboard/articles', compact('articles'));
     }
 
-    public function editArticle($articleID){
-        $currentArticle = new Articles;
-        $articleData = $currentArticle->where(['id' => $articleID])->first();
+    public function editArticle(){
+
+        $articleData = Articles::all();
 
 
        return view('dashboard.edit-article', compact('articleData'));

@@ -26,7 +26,7 @@ class AddNewColumnToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->dropColumn('featured_image');
         });
     }
 }

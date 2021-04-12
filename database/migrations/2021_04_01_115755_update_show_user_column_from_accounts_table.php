@@ -26,7 +26,7 @@ class UpdateShowUserColumnFromAccountsTable extends Migration
     public function down()
     {
         Schema::table('accounts', function (Blueprint $table) {
-            $table->integer('show_user')->default(0)->change();
+          $table->dropColumn('show_user');
         });
     }
 }
